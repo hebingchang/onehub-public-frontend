@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { Button, message, Tree, Row, Col, Layout, Modal, Icon, Breadcrumb, Spin } from 'ant-design-vue';
+import { Button, message, Tree, Row, Col, Layout, Modal, Icon, Breadcrumb, Spin, Empty } from 'ant-design-vue';
 import router from './router'
 import store from './store'
 import consts from "./consts.js";
@@ -49,6 +49,7 @@ Vue.use(Modal)
 Vue.use(Icon)
 Vue.use(Breadcrumb)
 Vue.use(Spin)
+Vue.use(Empty)
 Vue.use(VueAxios, axios)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.prototype.$message = message
