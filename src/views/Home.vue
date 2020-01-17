@@ -97,7 +97,8 @@
     <div v-if="!has_config" style="width: 100vw;">
       <a-empty>
         <div slot="description">
-          OneHub 尚未进行初始化。<a href="/admin/#/init">前往初始化</a>
+          OneHub 尚未进行初始化。
+          <a href="/admin/#/init">前往初始化</a>
         </div>
       </a-empty>
     </div>
@@ -200,6 +201,7 @@ export default {
     $route(to) {
       document.title = this.$config.title + " - " + to.path;
       this.selectedKeys = [to.path];
+      this.files_list = [];
       this.sortCol = {
         col: "",
         asc: true
