@@ -1,32 +1,83 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <a-layout id="container">
+    <a-layout class="layout">
+      <a-layout-header :style="headerStyle">
+        <div>
+          <span class="title">{{$config.title}}</span>
+          <!--<a-button shape="circle" icon="search" class="search-btn" />-->
+        </div>
+      </a-layout-header>
+      <a-layout-content :style="{ margin: '74px 16px 0', background: '#fff' }">
+        <div class="layout-container">
+          <router-view />
+        </div>
+      </a-layout-content>
+    </a-layout>
+  </a-layout>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      config: {},
+      headerStyle: {
+        position: "fixed",
+        background: "#f6f6f6",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: "0 20px",
+        height: "50px",
+        lineHeight: "50px",
+        width: "100vw",
+        zIndex: 100
+      }
+    };
+  },
+  methods: {}
+};
+</script>
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style>
+#container,
+.layout {
+  background: #fff !important;
 }
 
-#nav {
-  padding: 30px;
+#container .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.search-btn {
+  background-color: #f6f6f6 !important;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+#container .title {
+  font-size: 1.3em;
+  font-weight: 300;
+  margin-right: 10px;
+}
+
+.layout-container {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
+}
+
+@media only screen and (max-width: 850px) {
+  .layout-container {
+    padding: 12px;
   }
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+* {
+  -ms-overflow-style: none;
 }
 </style>
